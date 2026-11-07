@@ -31,17 +31,23 @@ class TestCalculator(unittest.TestCase):
 
     def test_divide(self):
         self.assertEqual(self.calc.divide(9, 3), 3)
+        self.assertEqual(self.calc.divide(9, 0), "Can not divie!!")
 
     def test_divide_negative(self):
         self.assertEqual(self.calc.divide(-12, 4), -3)
         self.assertEqual(self.calc.divide(4, -12), 0)
-        # self.assertEqual(self.calc.divide(-12, -4), 3)
+        self.assertEqual(self.calc.divide(-12, -4), 3)
 
-    # def test_modulo(self):
-    #     self.assertEqual(self.calc.modulo(5, 2), 1)
+    def test_modulo(self):
+        self.assertEqual(self.calc.modulo(5, 2), 1)
+        self.assertEqual(self.calc.modulo(10, 3), 1)
+        self.assertEqual(self.calc.modulo(9, 3), 0)
+        self.assertEqual(self.calc.modulo(7, 0), "Can not modulo")
 
-    # def test_modulo_negative(self):
-    #     self.assertEqual(self.calc.modulo())
+    def test_modulo_negative(self):
+        self.assertEqual(self.calc.modulo(-10, 3), -1)
+        self.assertEqual(self.calc.modulo(-9, 3), 0)
+        self.assertEqual(self.calc.modulo(-10, -3), -1)
         
 
 if __name__ == '__main__':
